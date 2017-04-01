@@ -11,7 +11,7 @@ from keras.utils import np_utils
 
 n_classes = 10
 batch_size = 128
-nb_epoch = 1
+nb_epoch = 10
 
 
 def build_multilayer_perception():
