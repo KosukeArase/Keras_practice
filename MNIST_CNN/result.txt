@@ -1,0 +1,87 @@
+(anaconda3-4.3.1/envs/tf) Kosuke:~/work/Keras$ python MNIST_CNN/cnn.py 
+Using TensorFlow backend.
+MNIST_CNN/cnn.py:34: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(32, kernel_size=(3, 3), activation="relu", input_shape=(28, 28, 1..., padding="valid")`
+  model.add(Conv2D(nb_filters[0], kernel_size=filter_size, activation='relu', border_mode='valid', input_shape=input_shape))
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 26, 26, 32)        320       
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 24, 24, 64)        18496     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 12, 12, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 12, 12, 64)        0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 9216)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               1179776   
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                1290      
+=================================================================
+Total params: 1,199,882.0
+Trainable params: 1,199,882.0
+Non-trainable params: 0.0
+_________________________________________________________________
+Begin epoch 0
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+54000/54000 [==============================] - 233s - loss: 0.2566 - acc: 0.9214 - val_loss: 0.0481 - val_acc: 0.9863
+10000/10000 [==============================] - 12s     
+
+Test loss:  0.049528386054
+Test accuracy:  0.9837
+Begin epoch 1
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 248s - loss: 0.0900 - acc: 0.9727 - val_loss: 0.0408 - val_acc: 0.9877
+ 9984/10000 [============================>.] - ETA: 0s 
+Test loss:  0.0399398094585
+Test accuracy:  0.9875
+Begin epoch 2
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 224s - loss: 0.0673 - acc: 0.9798 - val_loss: 0.0392 - val_acc: 0.9905
+10000/10000 [==============================] - 10s     
+
+Test loss:  0.0343140733192
+Test accuracy:  0.9892
+Begin epoch 3
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 226s - loss: 0.0550 - acc: 0.9829 - val_loss: 0.0356 - val_acc: 0.9895
+10000/10000 [==============================] - 12s     
+
+Test loss:  0.0324881439449
+Test accuracy:  0.9894
+Begin epoch 4
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 240s - loss: 0.0454 - acc: 0.9861 - val_loss: 0.0318 - val_acc: 0.9902
+10000/10000 [==============================] - 11s     
+
+Test loss:  0.0329325259365
+Test accuracy:  0.9891
+Begin epoch 5
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 252s - loss: 0.0415 - acc: 0.9873 - val_loss: 0.0358 - val_acc: 0.9903
+10000/10000 [==============================] - 11s     
+
+Test loss:  0.0302850182761
+Test accuracy:  0.9899
+Begin epoch 6
+Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 250s - loss: 0.0353 - acc: 0.9887 - val_loss: 0.0326 - val_acc: 0.9902
+10000/10000 [==============================] - 11s     
+
+Test loss:  0.0296374873386
+Test accuracy:  0.9906

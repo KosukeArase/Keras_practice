@@ -74,15 +74,17 @@ if __name__ == '__main__':
     # early_stopping = EarlyStopping(patience=0, verbose=1)
 
     # モデルの訓練
-    history = model.fit(X_train, Y_train,
-                    batch_size=batch_size,
-                    epochs=epochs,
-                    verbose=1,
-                    validation_split=0.1 # train_data に占める validation_data の比率
-                    # callbacks=[early_stopping])
-                    )
+    for epoch in range(epochs):
+        print('Begin epoch', epoch)
+        history = model.fit(X_train, Y_train,
+                        batch_size=batch_size,
+                        epochs=1,
+                        verbose=1,
+                        validation_split=0.1 # train_data に占める validation_data の比率
+                        # callbacks=[early_stopping])
+                        )
 
-    score = model.evaluate(X_test, Y_test, verbose=1)
+        score = model.evaluate(X_test, Y_test, verbose=1)
 
-    print('\nTest loss: ', score[0])
-    print('Test accuracy: ', score[1])
+        print('\nTest loss: ', score[0])
+        print('Test accuracy: ', score[1])
