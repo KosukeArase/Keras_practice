@@ -10,7 +10,7 @@ from keras.utils import np_utils
 
 n_classes = 10
 batch_size = 128
-nb_epoch = 1
+nb_epoch = 10
 
 
 def build_multilayer_perception():
@@ -52,16 +52,15 @@ model.compile(loss='categorical_crossentropy',
 # early_stopping = EarlyStopping(patience=0, verbose=1)
 
 # モデルの訓練
-for i in range(20):
-    history = model.fit(X_train, Y_train,
-                    batch_size=batch_size,
-                    nb_epoch=nb_epoch,
-                    verbose=1,
-                    validation_split=0.1, # train_data に占める validation_data の比率
-                    # callbacks=[early_stopping])
-                    )
+history = model.fit(X_train, Y_train,
+                batch_size=batch_size,
+                nb_epoch=nb_epoch,
+                verbose=1,
+                validation_split=0.1, # train_data に占める validation_data の比率
+                # callbacks=[early_stopping])
+                )
 
-    score = model.evaluate(X_test, Y_test, verbose=1)
+score = model.evaluate(X_test, Y_test, verbose=1)
 
-    print('\nTest loss: ', score[0])
-    print('Test accuracy: ', score[1])
+print('\nTest loss: ', score[0])
+print('Test accuracy: ', score[1])
