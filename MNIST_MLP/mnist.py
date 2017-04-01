@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
@@ -10,7 +11,7 @@ from keras.utils import np_utils
 
 n_classes = 10
 batch_size = 128
-nb_epoch = 10
+nb_epoch = 1
 
 
 def build_multilayer_perception():
@@ -20,8 +21,7 @@ def build_multilayer_perception():
     model.add(Dropout(0.2))
     model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.2))
-    model.add(Dense(10))
-    model.add(Activation('softmax'))
+    model.add(Dense(10, activation='softmax'))
 
     return model
 
@@ -62,3 +62,11 @@ score = model.evaluate(X_test, Y_test, verbose=1)
 
 print('\nTest loss: ', score[0])
 print('Test accuracy: ', score[1])
+
+# 学習したモデルとパラメータを保存
+model_json = model.to_json()
+result_dir = os.getcwd()
+
+with open(os.path.join(result_dir, 'model.json'), 'w') as json_file:
+    json_file.write(model_json)
+model.save_weights(os.path.join(result_dir, 'model.h5'))

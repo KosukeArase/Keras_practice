@@ -52,7 +52,7 @@ def build_cnn(input_shape, nb_filters, filter_size, pool_size):
 if __name__ == '__main__':
     nb_classes = 10
     batch_size = 128
-    epochs = 12
+    epochs = 6 #12
     input_shape = (28, 28, 1)
     filter_size = (3, 3)
     pool_size = (2, 2)
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     model = build_cnn(input_shape, nb_filters, filter_size, pool_size)
 
     model.summary()
-    plot_model(model, show_shapes=True, show_layer_names=True, to_file='model.png')
+    # plot_model(model, show_shapes=True, show_layer_names=True, to_file='model.png')
 
     # モデルをコンパイル
     model.compile(loss=categorical_crossentropy,
@@ -88,3 +88,11 @@ if __name__ == '__main__':
 
         print('\nTest loss: ', score[0])
         print('Test accuracy: ', score[1])
+
+    # 学習したモデルとパラメータを保存
+    model_json = model.to_json()
+    result_dir = os.getcwd()
+
+    with open(os.path.join(result_dir, 'model.json'), 'w') as json_file:
+        json_file.write(model_json)
+    model.save_weights(os.path.join(result_dir, 'model.h5'))
